@@ -474,6 +474,7 @@ const Home = () => {
 
   return (
     <div className="page-content">
+      
       <Row>
         <Col lg="12">
           <div>
