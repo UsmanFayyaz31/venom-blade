@@ -31,3 +31,10 @@ ActiveAdmin.register_page "Dashboard" do
     # end
   end # content
 end
+
+ActiveAdmin.register Product do
+end
+
+ActiveAdmin.register Category do
+  permit_params :category_name, :category_decription
+end
