@@ -33,6 +33,7 @@ ActiveAdmin.register_page "Dashboard" do
 end
 
 ActiveAdmin.register Product do
+  permit_params :product_name, :product_description, :price, :category_id
 end
 
 ActiveAdmin.register Category do
