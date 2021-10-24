@@ -1,6 +1,4 @@
 class Api::V1::ProductsController < ApplicationController
-    belongs_to :category
-
     def index
         @products = Product.all
         render json: @products
