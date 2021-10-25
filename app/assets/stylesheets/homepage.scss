@@ -12,3 +12,20 @@
 .background-color {
     background-color: black;
 }
+
+button {
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:active {
+        background-image: none !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    &:hover {
+        background-image: none !important;
+        background-color: transparent !important;
+    }
+}
