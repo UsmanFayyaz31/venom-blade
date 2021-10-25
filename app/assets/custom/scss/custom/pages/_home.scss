@@ -5,11 +5,16 @@
   .awssld--organic-arrows {
     height: 400px;
 
-    .awssld__container {
-      height: 400px;
+    .awssld__wrapper {
+      border-bottom: 1px solid rgb(187, 187, 187);
 
-      .awssld__content {
-        height: unset !important;
+      .awssld__container {
+        height: 400px;
+
+        .awssld__content {
+          height: unset !important;
+          background-color: unset;
+        }
       }
     }
   }
