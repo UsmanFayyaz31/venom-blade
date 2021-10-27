@@ -13,15 +13,20 @@ ActiveAdmin.register_page "Dashboard" do
 end
 
 ActiveAdmin.register Product do
-  permit_params :product_name, :product_description, :price, :category_id, images: []
+  permit_params :product_name, :product_description, :full_length, :blade_length, :handle_length, :material, :sheath, :price, :category_id, images: []
 
   form do |f|
     f.inputs do
       f.input :category_id, as: :select, collection: Category.select(:category_name, :id).uniq
-      f.input :product_name
+      f.input :product_name, required: true
+      f.input :full_length
+      f.input :blade_length
+      f.input :handle_length
+      f.input :material
+      f.input :sheath
       f.input :product_description
-      f.input :price
-      f.input :images, as: :file, input_html: { multiple: true }
+      f.input :price, required: true
+      f.input :images, as: :file, input_html: { multiple: true }, required: true
       f.actions
     end
   end
@@ -32,6 +37,11 @@ ActiveAdmin.register Product do
       row :category_id do |c|
         Category.select('category_name').find_by_id(c)
       end
+      row :full_length
+      row :blade_length
+      row :handle_length
+      row :material
+      row :sheath
       row :product_description
       row :price
 
