@@ -9,6 +9,7 @@ const Slider = () => {
   return (
     <AutoplaySlider
       play={true}
+      loop={true}
       bullets={false}
       cancelOnInteraction={false}
       interval={6000}
@@ -17,7 +18,7 @@ const Slider = () => {
         <img
           src={require("../../../assets/images/sword1.jpg")}
           width="1000px"
-          height="400px"
+          className="slider-images"
           quality={100}
         />
       </div>
@@ -31,7 +32,7 @@ const Slider = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "400px",
+            height: "60vh",
             left: 0,
             top: 0,
           }}
@@ -53,7 +54,7 @@ const Slider = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "400px",
+            height: "60vh",
             left: 0,
             top: 0,
           }}
@@ -75,7 +76,7 @@ const Slider = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "400px",
+            height: "60vh",
             left: 0,
             top: 0,
           }}
@@ -97,7 +98,7 @@ const Slider = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "400px",
+            height: "60vh",
             left: 0,
             top: 0,
           }}

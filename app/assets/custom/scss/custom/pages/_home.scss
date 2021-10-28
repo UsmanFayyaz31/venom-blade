@@ -2,18 +2,27 @@
   padding-right: 0px !important;
   padding-left: 0px !important;
 
+  .category-label {
+    color: white;
+    margin: 15px 0px 5px 5px;
+  }
+
   .awssld--organic-arrows {
-    height: 400px;
+    height: 60vh;
 
     .awssld__wrapper {
       border-bottom: 1px solid rgb(187, 187, 187);
 
       .awssld__container {
-        height: 400px;
+        height: 60vh;
 
         .awssld__content {
           height: unset !important;
           background-color: unset;
+
+          .slider-images{
+            height: 60vh;
+          }
         }
       }
     }
