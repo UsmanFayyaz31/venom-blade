@@ -14,5 +14,6 @@ export const WEBSITE_BASE_URL = getWebsiteBaseUrl();
 
 export const HOMEPAGE_API = WEBSITE_BASE_URL + "homepage";
 export const CATEGORY_API = WEBSITE_BASE_URL + "categories/";
+export const PRODUCT_API = WEBSITE_BASE_URL + "products/";
 
 export const ROOT = "/";
