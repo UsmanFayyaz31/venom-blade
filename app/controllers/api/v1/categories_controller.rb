@@ -6,7 +6,10 @@ class Api::V1::CategoriesController < ApplicationController
 
     def show
         @categories = Category.find(params[:id])
-        render json: @categories
+        render json: {
+            "category_name": @categories.category_name,
+            "products":@categories.products.map {|product| product.as_json.merge({product_images: product.images.map {|img| url_for(img)} })}
+        }
     end
 
     def create
