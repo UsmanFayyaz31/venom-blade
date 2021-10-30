@@ -28,11 +28,6 @@ const ProductsCards = (props) => {
                   </div>
                 ) : null}
                 <div className="product-img">
-                  <div className="product-wishlist">
-                    <Link to="#">
-                      <i className="mdi mdi-heart-outline"></i>
-                    </Link>
-                  </div>
                   <img
                     src={product.product_images[0]}
                     alt=""

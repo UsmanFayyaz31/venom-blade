@@ -8,7 +8,6 @@ const Category = (props) => {
   const [categoryName, setCategoryName] = useState(null);
 
   useEffect(() => {
-    console.log("debugging", props.match.params.id);
     getRequest(CATEGORY_API + props.match.params.id)
       .then((res) => {
         console.log("result", res);
