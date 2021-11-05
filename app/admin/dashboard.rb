@@ -61,3 +61,7 @@ end
 ActiveAdmin.register Category do
   permit_params :category_name, :category_decription
 end
+
+ActiveAdmin.register User do
+  permit_params :email, :reset_password_token
+end
