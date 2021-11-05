@@ -65,3 +65,13 @@ end
 ActiveAdmin.register User do
   permit_params :email, :reset_password_token
 end
+
+ActiveAdmin.register Order do
+  # form do |f|
+  #   f.inputs do
+  #     f.input :product_id, as: :select, collection: Product.select(:product_name, :id).uniq
+  #     f.input :user_id, as: :select, collection: User.select(:user_name, :id).uniq
+  #     f.actions
+  #   end
+  # end
+end

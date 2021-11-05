@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :products
       resources :categories
       resources :homepage
+      resources :orders
     end
   end
   root 'homepage#index'
