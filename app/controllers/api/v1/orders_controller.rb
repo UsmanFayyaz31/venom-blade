@@ -11,24 +11,21 @@ class Api::V1::OrdersController < ApplicationController
 
   def create
     @orders = Order.new(order_params)
-
-    byebug
-
-    remaining = 10 - (Date.today - ordered_date.to_date).to_i
+    remaining = 10 - (Date.today - order_params["ordered_date"].to_date).to_i
     if remaining <= 0
-        return 0
+      @orders.remaining_days = 0
     else
-        return remaining
+      @orders.remaining_days = remaining
     end
 
     if @orders.save
-        render json: @orders
+      render json: @orders
     else
-        render error: { error: 'Unable to create order'}, status: 400
+      render error: { error: 'Unable to create order'}, status: 400
     end
   end
 
-  # def post_params
-  #   params.require(:order).permit(:product_id, :user_id) 
-  # end
+  def order_params
+    params.require(:order).permit(:product_id, :user_id)
+  end
 end

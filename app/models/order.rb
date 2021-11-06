@@ -3,7 +3,7 @@ class Order < ApplicationRecord
     belongs_to :user
 
     def remaining_days   
-        remaining = 10 - (Date.today - ordered_date.to_date).to_i
+        remaining = 10 - (Date.today - created_at.to_date).to_i
         if remaining <= 0
             return 0
         else
@@ -12,7 +12,7 @@ class Order < ApplicationRecord
     end
 
     def delivered
-        remaining = 10 - (Date.today - ordered_date.to_date).to_i
+        remaining = 10 - (Date.today - created_at.to_date).to_i
         if remaining <= 0
             return true
         else

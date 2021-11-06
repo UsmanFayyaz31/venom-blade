@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Slider from "../home/Slider";
 import CategoryDisplayForHome from "../home/CategoryDisplayForHome";
-import { getRequest } from "../../services/server";
+import { getRequest, postRequest } from "../../services/server";
 import { HOMEPAGE_API } from "../../services/constants";
 
 const Home = () => {
@@ -22,18 +22,41 @@ const Home = () => {
   useEffect(() => {
     getRequest("http://127.0.0.1:3000/api/v1/current_user")
       .then((res) => {
-        console.log("Res", res);
+        console.log("debugging user", res);
       })
       .catch((err) => {
         console.log("err", err);
       });
   }, []);
 
+  const testing = () => {
+    postRequest("http://127.0.0.1:3000/api/v1/orders/", {
+      order: {
+        product_id: 1,
+        user_id: 1,
+      },
+    })
+      .then((res) => {
+        console.log("Res", res);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
+
   return (
     <div className="page-content home">
       <Slider />
 
       <h1 className="category-label">Browse our popular categories</h1>
+
+      <button
+        onClick={() => {
+          testing();
+        }}
+      >
+        Testing
+      </button>
 
       {data &&
         data.map((val, idx) => {

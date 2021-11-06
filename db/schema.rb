@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2021_11_06_084823) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "product_id"
     t.integer "user_id"
-    t.datetime "ordered_date"
     t.integer "remaining_days"
     t.boolean "delivered"
     t.index ["product_id"], name: "index_orders_on_product_id"

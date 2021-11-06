@@ -67,13 +67,12 @@ ActiveAdmin.register User do
 end
 
 ActiveAdmin.register Order do
-  permit_params :product_id, :user_id, :ordered_date
+  permit_params :product_id, :user_id
 
   form do |f|
     f.inputs do
       f.input :product_id, as: :select, collection: Product.select(:product_name, :id).uniq
       f.input :user_id, as: :select, collection: User.select(:email, :id).uniq
-      f.input :ordered_date
       # f.input :product_name, required: true
       # f.input :full_length
       # f.input :blade_length
