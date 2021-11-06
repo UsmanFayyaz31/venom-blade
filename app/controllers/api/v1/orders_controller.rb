@@ -12,6 +12,15 @@ class Api::V1::OrdersController < ApplicationController
   def create
     @orders = Order.new(order_params)
 
+    byebug
+
+    remaining = 10 - (Date.today - ordered_date.to_date).to_i
+    if remaining <= 0
+        return 0
+    else
+        return remaining
+    end
+
     if @orders.save
         render json: @orders
     else
