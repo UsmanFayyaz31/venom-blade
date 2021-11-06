@@ -19,30 +19,30 @@ const Home = () => {
       });
   }, []);
 
-  useEffect(() => {
-    getRequest("http://127.0.0.1:3000/api/v1/current_user")
-      .then((res) => {
-        console.log("debugging user", res);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  }, []);
+  // const testing = () => {
+  //   postRequest("http://127.0.0.1:3000/api/v1/orders/", {
+  //     order: {
+  //       product_id: 1,
+  //       user_id: 1,
+  //     },
+  //   })
+  //     .then((res) => {
+  //       console.log("Res", res);
+  //     })
+  //     .catch((err) => {
+  //       console.log("err", err);
+  //     });
+  // };
 
-  const testing = () => {
-    postRequest("http://127.0.0.1:3000/api/v1/orders/", {
-      order: {
-        product_id: 1,
-        user_id: 1,
-      },
-    })
-      .then((res) => {
-        console.log("Res", res);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  };
+  // const testing1=()=>{
+  //   getRequest("http://127.0.0.1:3000/get_current_user")
+  //   .then((res) => {
+  //     console.log("debugging user", res);
+  //   })
+  //   .catch((err) => {
+  //     console.log("err", err);
+  //   });
+  // }
 
   return (
     <div className="page-content home">
@@ -56,6 +56,14 @@ const Home = () => {
         }}
       >
         Testing
+      </button>
+
+      <button
+        onClick={() => {
+          testing1();
+        }}
+      >
+        Testing1
       </button>
 
       {data &&
