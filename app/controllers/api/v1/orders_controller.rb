@@ -13,13 +13,13 @@ class Api::V1::OrdersController < ApplicationController
     @orders = Order.new(order_params)
 
     if @orders.save
-        render json: @orders
+      render json: @orders
     else
-        render error: { error: 'Unable to create order'}, status: 400
+      render error: { error: 'Unable to create order'}, status: 400
     end
   end
 
-  # def post_params
-  #   params.require(:order).permit(:product_id, :user_id) 
-  # end
+  def order_params
+    params.require(:order).permit(:product_id, :user_id)
+  end
 end
