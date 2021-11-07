@@ -6,6 +6,7 @@ import Category from "../components/pages/Category";
 import ProductDetails from "../components/pages/ProductDetails";
 import SignIn from "../components/pages/SignIn";
 import SignUp from "../components/pages/SignUp";
+import Cart from "../components/pages/Cart";
 
 export default (
   <Router>
@@ -16,6 +17,7 @@ export default (
       <Route path="/signup" component={SignUp} />
       <Route path="/category/:id" component={Category} />
       <Route path="/product/:id" component={ProductDetails} />
+      <Route path="/cart" component={Cart} />
     </Switch>
   </Router>
 );

@@ -50,22 +50,6 @@ const Home = () => {
 
       <h1 className="category-label">Browse our popular categories</h1>
 
-      <button
-        onClick={() => {
-          testing();
-        }}
-      >
-        Testing
-      </button>
-
-      <button
-        onClick={() => {
-          testing1();
-        }}
-      >
-        Testing1
-      </button>
-
       {data &&
         data.map((val, idx) => {
           return <CategoryDisplayForHome data={val} key={idx} />;
