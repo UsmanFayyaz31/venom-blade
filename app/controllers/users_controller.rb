@@ -3,5 +3,5 @@ class UsersController < ApplicationController
 
   def get_current_user
     render json: {name: current_user.id}
-    end
+  end
 end

@@ -63,7 +63,8 @@ ActiveAdmin.register Category do
 end
 
 ActiveAdmin.register User do
-  permit_params :email, :reset_password_token
+  permit_params :email, :reset_password_token, :address, :postal_code, :first_name, :last_name
+  actions :all, only: :show, except: [:new]
 end
 
 ActiveAdmin.register Order do
@@ -73,15 +74,6 @@ ActiveAdmin.register Order do
     f.inputs do
       f.input :product_id, as: :select, collection: Product.select(:product_name, :id).uniq
       f.input :user_id, as: :select, collection: User.select(:email, :id).uniq
-      # f.input :product_name, required: true
-      # f.input :full_length
-      # f.input :blade_length
-      # f.input :handle_length
-      # f.input :material
-      # f.input :sheath
-      # f.input :product_description
-      # f.input :price, required: true
-      # f.input :images, as: :file, input_html: { multiple: true }, required: true
       f.actions
     end
   end
