@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { SIGN_IN_API } from "../../services/constants";
 import { getRequest } from "../../services/server";
 
 const SignIn = () => {
   const [form, setForm] = useState(null);
 
   useEffect(() => {
-    getRequest("http://127.0.0.1:3000/users/sign_in").then((res) => {
+    getRequest(SIGN_IN_API).then((res) => {
       var temp = res.data;
 
       console.log("debugging", res.data);
@@ -22,6 +23,7 @@ const SignIn = () => {
 
   return (
     <div className="page-content">
+      {console.log("testing", form)}
       {form && <div dangerouslySetInnerHTML={{ __html: form }} />}
     </div>
   );

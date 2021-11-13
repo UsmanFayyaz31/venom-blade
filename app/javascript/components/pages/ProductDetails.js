@@ -197,7 +197,7 @@ const ProductDetails = (props) => {
                                 <Button
                                   type="button"
                                   color="light"
-                                  className="btn-block waves-effect  mt-2 waves-light"
+                                  className="btn-block waves-effect mt-2 waves-light buy-now-button"
                                   onClick={() => handleBuyNow()}
                                 >
                                   <i className="uil uil-shopping-basket me-2"></i>

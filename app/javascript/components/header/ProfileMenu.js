@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Dropdown, DropdownMenu, DropdownToggle } from "reactstrap";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import { getRequest } from "../../services/server";
+import { SIGN_OUT_API } from "../../services/constants";
 
 const ProfileMenu = () => {
   const [user, setUser] = useState({ username: "usman" });
   const [menu, setMenu] = useState(false);
+
+  useEffect(() => {
+    const result = JSON.parse(localStorage.getItem("user"));
+    setUser(result);
+  }, []);
+
+  const signOut = () => {
+    getRequest(SIGN_OUT_API)
+      .then((result) => {
+        console.log("sign out", result);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
 
   return (
     <Dropdown
@@ -20,12 +37,14 @@ const ProfileMenu = () => {
         style={{ alignItems: "center" }}
       >
         <div className="header-profile-user rounded-circle">
-          {user && user.username.charAt(0).toUpperCase()}
+          {user && user.first_name
+            ? user.first_name.charAt(0).toUpperCase()
+            : "V"}
         </div>
         <ArrowDropDownIcon />
       </DropdownToggle>
       <DropdownMenu className="dropdown-menu-end">
-        <Link to="#" className="dropdown-item">
+        <Link to="#" onClick={signOut} className="dropdown-item">
           <i className="uil uil-sign-out-alt font-size-18 align-middle me-1 text-muted"></i>
           <span>Sign out</span>
         </Link>

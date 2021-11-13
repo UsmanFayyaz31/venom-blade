@@ -13,6 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { getRequest, postRequest } from "../../services/server";
+import { CURRENT_USER, ORDERS } from "../../services/constants";
 
 const Cart = () => {
   const [productList, setproductList] = useState(null);
@@ -20,7 +21,7 @@ const Cart = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getRequest("http://127.0.0.1:3000/get_current_user")
+    getRequest(CURRENT_USER)
       .then((res) => {
         console.log("debugging user", res.data.user);
         setUser(res.data.user);
@@ -74,7 +75,7 @@ const Cart = () => {
 
   const placeOrder = () => {
     productList.map((val, idx) => {
-      postRequest("http://127.0.0.1:3000/api/v1/orders/", {
+      postRequest(ORDERS, {
         order: {
           product_id: val.id,
           user_id: user.id,
@@ -107,7 +108,7 @@ const Cart = () => {
         </Row>
       )}
       <Row>
-        {productList ? (
+        {productList && productList.length > 0 ? (
           <>
             <Col md="7">
               {productList.map((product, idx) => (
@@ -239,7 +240,7 @@ const Cart = () => {
                             </td>
                           </tr>
                           <tr>
-                            <td>
+                            <td style={{ borderBottomWidth: "0px" }}>
                               <Button onClick={() => placeOrder()}>
                                 Place Order
                               </Button>
