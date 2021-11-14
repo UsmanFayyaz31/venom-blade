@@ -13,7 +13,12 @@ import {
 import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { getRequest, postRequest } from "../../services/server";
-import { CURRENT_USER, ORDERS } from "../../services/constants";
+import {
+  CURRENT_USER,
+  ORDERS,
+  ROOT,
+  SIGN_IN_PAGE,
+} from "../../services/constants";
 
 const Cart = () => {
   const [productList, setproductList] = useState(null);
@@ -54,6 +59,7 @@ const Cart = () => {
     );
     setproductList(updatedProducts);
     localStorage.setItem("cart", JSON.stringify({ data: updatedProducts }));
+    window.dispatchEvent(new Event("storage"));
   };
 
   const countDown = (id, prev_data_attr) => {
@@ -63,6 +69,7 @@ const Cart = () => {
       );
       setproductList(updatedProducts);
       localStorage.setItem("cart", JSON.stringify({ data: updatedProducts }));
+      window.dispatchEvent(new Event("storage"));
     }
   };
 
@@ -71,6 +78,7 @@ const Cart = () => {
     temp.splice(idx, 1);
     setproductList(temp);
     localStorage.setItem("cart", JSON.stringify({ data: temp }));
+    window.dispatchEvent(new Event("storage"));
   };
 
   const placeOrder = () => {
@@ -84,6 +92,9 @@ const Cart = () => {
       })
         .then((res) => {
           console.log("Res", res);
+          setproductList(null);
+          localStorage.setItem("cart", null);
+          window.dispatchEvent(new Event("storage"));
         })
         .catch((err) => {
           console.log("err", err);
@@ -99,7 +110,7 @@ const Cart = () => {
             <Card>
               <CardBody>
                 <h4>Login or SignUp to continue shopping</h4>
-                <Link className="link-to-signin" to="/signin">
+                <Link className="link-to-signin" to={SIGN_IN_PAGE}>
                   Click Here to Login
                 </Link>
               </CardBody>
@@ -259,7 +270,7 @@ const Cart = () => {
             <Card>
               <CardBody>
                 <h3>No items In Your Cart</h3>
-                <Link to="/">
+                <Link to={ROOT}>
                   <h2
                     style={{
                       display: "inline-block",

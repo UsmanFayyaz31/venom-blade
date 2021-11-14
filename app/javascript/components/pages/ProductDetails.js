@@ -16,10 +16,10 @@ import {
   Table,
 } from "reactstrap";
 import classnames from "classnames";
-
-import { PRODUCT_API } from "../../services/constants";
-import { getRequest } from "../../services/server";
 import { useHistory } from "react-router";
+
+import { CART_PAGE, PRODUCT_API } from "../../services/constants";
+import { getRequest } from "../../services/server";
 
 const ProductDetails = (props) => {
   const history = useHistory();
@@ -68,6 +68,7 @@ const ProductDetails = (props) => {
         if (exsistingItem.data[i].id === product.id) {
           exsistingItem.data[i].quantity = exsistingItem.data[i].quantity + 1;
           localStorage.setItem("cart", JSON.stringify(exsistingItem));
+          window.dispatchEvent(new Event("storage"));
           isRepeat = true;
           break;
         }
@@ -79,18 +80,20 @@ const ProductDetails = (props) => {
         temp.quantity = 1;
         exsistingItem.data.push(temp);
         localStorage.setItem("cart", JSON.stringify(exsistingItem));
+        window.dispatchEvent(new Event("storage"));
       }
     } else {
       var temp = product;
       temp.quantity = 1;
       localStorage.setItem("cart", JSON.stringify({ data: [temp] }));
+      window.dispatchEvent(new Event("storage"));
     }
   };
 
   const handleBuyNow = () => {
     addDataToLocalStorage();
 
-    history.push("/cart");
+    history.push(CART_PAGE);
   };
 
   return (

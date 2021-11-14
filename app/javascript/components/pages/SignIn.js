@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SIGN_IN_API } from "../../services/constants";
+import { SIGN_IN_API, SIGN_UP_PAGE } from "../../services/constants";
 import { getRequest } from "../../services/server";
 
 const SignIn = () => {
@@ -11,7 +11,7 @@ const SignIn = () => {
 
       console.log("debugging", res.data);
 
-      temp = temp.toString().replace("/users/sign_up", "/signup");
+      temp = temp.toString().replace("/users/sign_up", SIGN_UP_PAGE);
       temp = temp.replace(
         '<a href="/users/password/new">Forgot your password?</a><br />',
         ""

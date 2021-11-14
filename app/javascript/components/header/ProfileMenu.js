@@ -6,12 +6,12 @@ import { getRequest } from "../../services/server";
 import { SIGN_OUT_API } from "../../services/constants";
 
 const ProfileMenu = () => {
-  const [user, setUser] = useState({ username: "usman" });
+  const [user, setUser] = useState(null);
   const [menu, setMenu] = useState(false);
 
   useEffect(() => {
     const result = JSON.parse(localStorage.getItem("user"));
-    setUser(result);
+    if (result) setUser(result);
   }, []);
 
   const signOut = () => {

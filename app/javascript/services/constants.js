@@ -22,3 +22,6 @@ export const ORDERS = WEBSITE_BASE_URL + "api/v1/orders/";
 export const SIGN_OUT_API = WEBSITE_BASE_URL + "users/sign_out";
 
 export const ROOT = "/";
+export const SIGN_IN_PAGE = "/signin";
+export const SIGN_UP_PAGE = "/signup";
+export const CART_PAGE = "/cart";
