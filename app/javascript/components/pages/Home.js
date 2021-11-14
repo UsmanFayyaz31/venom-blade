@@ -19,52 +19,11 @@ const Home = () => {
       });
   }, []);
 
-  // const testing = () => {
-  //   postRequest("http://127.0.0.1:3000/api/v1/orders/", {
-  //     order: {
-  //       product_id: 1,
-  //       user_id: 1,
-  //     },
-  //   })
-  //     .then((res) => {
-  //       console.log("Res", res);
-  //     })
-  //     .catch((err) => {
-  //       console.log("err", err);
-  //     });
-  // };
-
-  // const testing1=()=>{
-  //   getRequest("http://127.0.0.1:3000/get_current_user")
-  //   .then((res) => {
-  //     console.log("debugging user", res);
-  //   })
-  //   .catch((err) => {
-  //     console.log("err", err);
-  //   });
-  // }
-
   return (
     <div className="page-content home">
       <Slider />
 
       <h1 className="category-label">Browse our popular categories</h1>
-
-      <button
-        onClick={() => {
-          testing();
-        }}
-      >
-        Testing
-      </button>
-
-      <button
-        onClick={() => {
-          testing1();
-        }}
-      >
-        Testing1
-      </button>
 
       {data &&
         data.map((val, idx) => {

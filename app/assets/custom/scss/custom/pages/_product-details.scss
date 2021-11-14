@@ -4,6 +4,13 @@
 
 // product
 
+.buy-now-button {
+  &:hover {
+    background-color: #272727;
+    color: white !important;
+  }
+}
+
 .page-content {
   .product-detail-card {
     background-color: black;

@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_11_06_194804) do
     t.integer "user_id"
     t.integer "remaining_days"
     t.boolean "delivered"
+    t.integer "quantity"
     t.index ["product_id"], name: "index_orders_on_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

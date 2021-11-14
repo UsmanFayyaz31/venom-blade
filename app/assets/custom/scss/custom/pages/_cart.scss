@@ -1,0 +1,13 @@
+.cart-page {
+  .card-body {
+    background-color: black;
+  }
+
+  .link-to-signin {
+    text-decoration: underline !important;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

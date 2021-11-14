@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { SIGN_IN_PAGE, SIGN_UP_API } from "../../services/constants";
 import { getRequest } from "../../services/server";
 
 const SignUp = () => {
   const [form, setForm] = useState(null);
 
   useEffect(() => {
-    getRequest("http://127.0.0.1:3000/users/sign_up").then((res) => {
+    getRequest(SIGN_UP_API).then((res) => {
       var temp = res.data;
 
-      temp = temp.toString().replace("/users/sign_in", "/signin");
+      temp = temp.toString().replace("/users/sign_in", SIGN_IN_PAGE);
 
       setForm(temp);
     });

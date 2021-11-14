@@ -16,11 +16,14 @@ import {
   Table,
 } from "reactstrap";
 import classnames from "classnames";
+import { useHistory } from "react-router";
 
-import { PRODUCT_API } from "../../services/constants";
+import { CART_PAGE, PRODUCT_API } from "../../services/constants";
 import { getRequest } from "../../services/server";
 
 const ProductDetails = (props) => {
+  const history = useHistory();
+
   const [product, setProduct] = useState(null);
   const [activeTab, setActiveTab] = useState("1");
   const [activeDescriptionTab, setDescriptionActiveTab] =
@@ -52,6 +55,45 @@ const ProductDetails = (props) => {
   const imageShow = (img, id) => {
     const expandImg = document.getElementById("expandedImg" + id);
     expandImg.src = img;
+  };
+
+  const addDataToLocalStorage = () => {
+    var exsistingItem = JSON.parse(localStorage.getItem("cart"));
+
+    var isRepeat = false;
+
+    if (exsistingItem && exsistingItem.data.length >= 1) {
+      for (var i = 0; i < exsistingItem.data.length; i++) {
+        // exsistingItem.data.map((val, idx) => {
+        if (exsistingItem.data[i].id === product.id) {
+          exsistingItem.data[i].quantity = exsistingItem.data[i].quantity + 1;
+          localStorage.setItem("cart", JSON.stringify(exsistingItem));
+          window.dispatchEvent(new Event("storage"));
+          isRepeat = true;
+          break;
+        }
+      }
+      // });
+
+      if (!isRepeat) {
+        var temp = product;
+        temp.quantity = 1;
+        exsistingItem.data.push(temp);
+        localStorage.setItem("cart", JSON.stringify(exsistingItem));
+        window.dispatchEvent(new Event("storage"));
+      }
+    } else {
+      var temp = product;
+      temp.quantity = 1;
+      localStorage.setItem("cart", JSON.stringify({ data: [temp] }));
+      window.dispatchEvent(new Event("storage"));
+    }
+  };
+
+  const handleBuyNow = () => {
+    addDataToLocalStorage();
+
+    history.push(CART_PAGE);
   };
 
   return (
@@ -148,6 +190,7 @@ const ProductDetails = (props) => {
                                   type="button"
                                   color="primary"
                                   className="btn-block waves-effect waves-light mt-2 me-1"
+                                  onClick={() => addDataToLocalStorage()}
                                 >
                                   <i className="uil uil-shopping-cart-alt me-2"></i>{" "}
                                   Add to cart
@@ -157,7 +200,8 @@ const ProductDetails = (props) => {
                                 <Button
                                   type="button"
                                   color="light"
-                                  className="btn-block waves-effect  mt-2 waves-light"
+                                  className="btn-block waves-effect mt-2 waves-light buy-now-button"
+                                  onClick={() => handleBuyNow()}
                                 >
                                   <i className="uil uil-shopping-basket me-2"></i>
                                   Buy now

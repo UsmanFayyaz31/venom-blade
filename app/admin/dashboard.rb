@@ -68,12 +68,14 @@ ActiveAdmin.register User do
 end
 
 ActiveAdmin.register Order do
-  permit_params :product_id, :user_id
+  permit_params :product_id, :user_id, :quantity, :delivered
 
   form do |f|
     f.inputs do
       f.input :product_id, as: :select, collection: Product.select(:product_name, :id).uniq
       f.input :user_id, as: :select, collection: User.select(:email, :id).uniq
+      f.input :quantity
+      f.input :delivered
       f.actions
     end
   end
