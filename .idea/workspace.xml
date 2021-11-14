@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efab0df4-233b-41b6-8a60-d1ec31b560f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/assets/custom/scss/custom/structure/_topbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/custom/scss/custom/structure/_topbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/header/ProfileMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/header/ProfileMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/pages/Cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/pages/ProductDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/pages/ProductDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/pages/SignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/components/pages/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/components/pages/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/javascript/services/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/services/constants.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/initializers/devise.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/seeds.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/seeds.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +148,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636827989441</updated>
       <workItem from="1636828013240" duration="3909000" />
-      <workItem from="1636878079670" duration="5121000" />
+      <workItem from="1636878079670" duration="6452000" />
     </task>
     <servers />
   </component>
