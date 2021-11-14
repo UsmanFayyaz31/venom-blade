@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efab0df4-233b-41b6-8a60-d1ec31b560f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-    </list>
+    <list default="true" id="efab0df4-233b-41b6-8a60-d1ec31b560f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +144,7 @@
       <option name="presentableId" value="Default" />
       <updated>1636827989441</updated>
       <workItem from="1636828013240" duration="3909000" />
-      <workItem from="1636878079670" duration="6452000" />
+      <workItem from="1636878079670" duration="6821000" />
     </task>
     <servers />
   </component>
