@@ -108,35 +108,37 @@ const ProductDetails = (props) => {
                     <Col xl="8">
                       <div className="product-detail">
                         <Row>
-                          {product.product_images.length >= 2 && (
-                            <Col xs="5" sm="3">
-                              <Nav className="flex-column" pills>
-                                {product.product_images.map((val, idx) => {
-                                  return (
-                                    <NavItem key={idx}>
-                                      <NavLink
-                                        className={classnames({
-                                          active: activeTab === "1",
-                                        })}
-                                        onClick={() => {
-                                          toggleTab("1");
-                                        }}
-                                      >
-                                        <img
-                                          src={val}
-                                          alt=""
+                          {product &&
+                            product.product_images &&
+                            product.product_images.length >= 2 && (
+                              <Col xs="5" sm="3">
+                                <Nav className="flex-column" pills>
+                                  {product.product_images.map((val, idx) => {
+                                    return (
+                                      <NavItem key={idx}>
+                                        <NavLink
+                                          className={classnames({
+                                            active: activeTab === "1",
+                                          })}
                                           onClick={() => {
-                                            imageShow(val, 1);
+                                            toggleTab("1");
                                           }}
-                                          className="img-fluid mx-auto d-block tab-img rounded"
-                                        />
-                                      </NavLink>
-                                    </NavItem>
-                                  );
-                                })}
-                              </Nav>
-                            </Col>
-                          )}
+                                        >
+                                          <img
+                                            src={val}
+                                            alt=""
+                                            onClick={() => {
+                                              imageShow(val, 1);
+                                            }}
+                                            className="img-fluid mx-auto d-block tab-img rounded"
+                                          />
+                                        </NavLink>
+                                      </NavItem>
+                                    );
+                                  })}
+                                </Nav>
+                              </Col>
+                            )}
                           <Col>
                             <TabContent
                               activeTab={activeTab}
