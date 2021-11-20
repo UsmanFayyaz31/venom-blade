@@ -31,12 +31,14 @@ const Header = () => {
     if (cart) {
       const items = JSON.parse(cart);
       var count = 0;
-      if (items.data.length > 0) {
+      if (items && items.data.length > 0) {
         items.data.map((val) => {
           count = count + val.quantity;
         });
       }
       setItemCount(count);
+    } else {
+      setItemCount(0);
     }
   };
 

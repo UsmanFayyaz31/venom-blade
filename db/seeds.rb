@@ -4,13 +4,13 @@
 # Examples:
 
 
-# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
-# Category.create(category_name: "Axe")
-# Category.create(category_name: "Dagger")
-# Category.create(category_name: "Sword")
-# Category.create(category_name: "Knife")
-# Category.create(category_name: "EDC")
+Category.create(category_name: "Axe")
+Category.create(category_name: "Dagger")
+Category.create(category_name: "Sword")
+Category.create(category_name: "Knife")
+Category.create(category_name: "EDC")
 
 Product.create(category_id: '5', product_name: 'EDC product1', full_length: '20', blade_length: '18', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '70')
 Product.create(category_id: '5', product_name: 'EDC product2', full_length: '30', blade_length: '17', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '140')
