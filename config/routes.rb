@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
   root 'homepage#index'
-  get 'get_current_user' => "users#get_current_user"
+  get '/cart/get_current_user' => "users#get_current_user"
   get '/users/sign_out' => "sign_out :users"
   get '*path', to: 'homepage#index', constraints: lambda {|req|
     req.path.exclude? 'rails/active_storage'

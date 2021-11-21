@@ -25,21 +25,22 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    getRequest(CURRENT_USER)
-      .then((res) => {
-        console.log("debugging user", res.data.user);
-        setUser(res.data.user);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
+  const getUser = () => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setUser(JSON.parse(user));
+    }
 
     var products = JSON.parse(localStorage.getItem("cart"));
     if (products) {
       products = products.data;
       if (products.length >= 1) setproductList(products);
     }
+  };
+
+  useEffect(() => {
+    getUser();
+    window.addEventListener("storage", getUser);
   }, []);
 
   useEffect(() => {
@@ -83,6 +84,15 @@ const Cart = () => {
 
   const placeOrder = () => {
     productList.map((val, idx) => {
+      console.log(
+        "debugging user cart",
+        {
+          product_id: val.id,
+          user_id: user.id,
+          quantity: val.quantity,
+        },
+        user
+      );
       postRequest(ORDERS, {
         order: {
           product_id: val.id,

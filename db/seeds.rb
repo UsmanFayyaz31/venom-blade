@@ -22,7 +22,6 @@ Product.create(category_id: '5', product_name: 'EDC product7', full_length: '60'
 Product.create(category_id: '5', product_name: 'EDC product8', full_length: '80', blade_length: '10', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '40')
 Product.create(category_id: '5', product_name: 'EDC product9', full_length: '80', blade_length: '19', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '30')
 
-
 Product.create(category_id: '4', product_name: 'Knives product1', full_length: '20', blade_length: '18', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '70')
 Product.create(category_id: '4', product_name: 'Knives product2', full_length: '30', blade_length: '17', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '140')
 Product.create(category_id: '4', product_name: 'Knives product3', full_length: '40', blade_length: '16', handle_length: '5', material: 'iron', sheath: 'true', product_description: 'asd asdasd', price: '80')
