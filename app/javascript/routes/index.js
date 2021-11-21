@@ -41,8 +41,8 @@ const Routes = () => {
         <Route path={ROOT} exact component={Home} />
         <Route path={SIGN_IN_PAGE} component={SignIn} />
         <Route path={SIGN_UP_PAGE} component={SignUp} />
-        <Route path="/category/:id" component={Category} />
-        <Route path="/product/:id" component={ProductDetails} />
+        <Route path="/category/:id" exact={true} component={Category} />
+        <Route path="/product/:id" exact={true} component={ProductDetails} />
         <Route path={CART_PAGE} component={Cart} />
       </Switch>
     </Router>
