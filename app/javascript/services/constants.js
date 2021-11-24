@@ -5,7 +5,7 @@ const getWebsiteBaseUrl = () => {
     url = "http://127.0.0.1:3000/";
   } else {
     console.log("Production Mode");
-    url = "";
+    url = "https://venom-blade.herokuapp.com/";
   }
   return url;
 };
