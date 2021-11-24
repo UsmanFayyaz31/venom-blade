@@ -15,7 +15,7 @@ const ProductsCards = (props) => {
             <CardBody className="product-card-body">
               <div
                 className="product-box"
-                onClick={() => history.push(`/product/${product.id}`)}
+                onClick={() => history.push(`/product-details/${product.id}`)}
               >
                 {product.islable ? (
                   <div className="product-ribbon badge bg-warning">

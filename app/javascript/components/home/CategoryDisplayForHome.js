@@ -10,7 +10,7 @@ const CategoryDisplayForHome = (props) => {
     <div className="home-content">
       {data.products && data.products.length >= 1 && (
         <>
-          <Link to={`/category/${data.id}`}>
+          <Link to={`/category-details/${data.id}`}>
             <h1 className="heading mt-4">{data.category_name}</h1>
           </Link>
 
