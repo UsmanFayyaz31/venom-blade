@@ -12,9 +12,15 @@ Rails.application.routes.draw do
       resources :orders
     end
   end
+
+  devise_scope :user do
+    get "/users/sign_in" => "devise/sessions#new"
+    delete "/users/sign_out" => "devise/sessions#destroy"
+  end
+
   root 'homepage#index'
   get '/cart/get_current_user' => "users#get_current_user"
-  get '/users/sign_out' => "sign_out :users"
+  # get '/users/sign_out' => "logout :users"
   get '*path', to: 'homepage#index', constraints: lambda {|req|
     req.path.exclude? 'rails/active_storage'
   }

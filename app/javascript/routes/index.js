@@ -18,15 +18,16 @@ import {
 } from "../services/constants";
 
 const Routes = () => {
-  const [user, setUser] = useState(null);
-
   useEffect(() => {
     getRequest(CURRENT_USER)
       .then((res) => {
+        console.log("result debugging", res);
         if (res.data.user) {
           localStorage.setItem("user", JSON.stringify(res.data.user));
           window.dispatchEvent(new Event("storage"));
-          setUser(res.data.user);
+        } else {
+          localStorage.setItem("user", null);
+          window.dispatchEvent(new Event("storage"));
         }
       })
       .catch((err) => {

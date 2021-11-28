@@ -22,11 +22,10 @@ const Header = () => {
 
   const getItemCount = () => {
     const cart = localStorage.getItem("cart");
-    const user = localStorage.getItem("user");
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
-      setIsLogin(true);
-    }
+    if (user) setIsLogin(true);
+    else setIsLogin(false);
 
     if (cart) {
       const items = JSON.parse(cart);
@@ -51,6 +50,10 @@ const Header = () => {
     getRequest(SIGN_OUT_API)
       .then((result) => {
         console.log("sign out", result);
+        if (result.status === 200) {
+          localStorage.setItem("user", null);
+          window.dispatchEvent(new Event("storage"));
+        }
       })
       .catch((err) => {
         console.log("err", err);
@@ -86,7 +89,7 @@ const Header = () => {
             <CartIcon className="cart-icon" />
             {itemCount > 0 && <p className="cart-number">{itemCount}</p>}
           </div>
-          {/* <ProfileMenu /> */}
+
           {isLogin ? (
             <Link to="#" onClick={signOut} className="header-links">
               Log Out

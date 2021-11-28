@@ -83,51 +83,39 @@ const Cart = () => {
   };
 
   const placeOrder = () => {
-    productList.map((val, idx) => {
-      console.log(
-        "debugging user cart",
-        {
-          product_id: val.id,
-          user_id: user.id,
-          quantity: val.quantity,
-        },
-        user
-      );
-      postRequest(ORDERS, {
-        order: {
-          product_id: val.id,
-          user_id: user.id,
-          quantity: val.quantity,
-        },
-      })
-        .then((res) => {
-          console.log("Res", res);
-          setproductList(null);
-          localStorage.setItem("cart", null);
-          window.dispatchEvent(new Event("storage"));
+    if (user) {
+      productList.map((val, idx) => {
+        console.log(
+          "debugging user cart",
+          {
+            product_id: val.id,
+            user_id: user.id,
+            quantity: val.quantity,
+          },
+          user
+        );
+        postRequest(ORDERS, {
+          order: {
+            product_id: val.id,
+            user_id: user.id,
+            quantity: val.quantity,
+          },
         })
-        .catch((err) => {
-          console.log("err", err);
-        });
-    });
+          .then((res) => {
+            console.log("Res", res);
+            setproductList(null);
+            localStorage.setItem("cart", null);
+            window.dispatchEvent(new Event("storage"));
+          })
+          .catch((err) => {
+            console.log("err", err);
+          });
+      });
+    }
   };
 
   return (
     <div className="page-content cart-page">
-      {!user && (
-        <Row>
-          <Col xs={12}>
-            <Card>
-              <CardBody>
-                <h4>Login or SignUp to continue shopping</h4>
-                <Link className="link-to-signin" to={SIGN_IN_PAGE}>
-                  Click Here to Login
-                </Link>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      )}
       <Row>
         {productList && productList.length > 0 ? (
           <>
@@ -260,13 +248,35 @@ const Cart = () => {
                               <span className="fw-bold">$ {total}</span>
                             </td>
                           </tr>
-                          <tr>
-                            <td style={{ borderBottomWidth: "0px" }}>
-                              <Button onClick={() => placeOrder()}>
-                                Place Order
-                              </Button>
-                            </td>
-                          </tr>
+
+                          {!user ? (
+                            <Row>
+                              <Col xs={12}>
+                                <h4>Login or SignUp to continue shopping</h4>
+                                <Link
+                                  className="link-to-signin"
+                                  to={SIGN_IN_PAGE}
+                                >
+                                  Click Here to Login
+                                </Link>
+                              </Col>
+                            </Row>
+                          ) : (
+                            <tr>
+                              <td
+                                colSpan={2}
+                                style={{
+                                  borderBottomWidth: "0px",
+                                  paddingRight: "0px",
+                                  textAlign: "right",
+                                }}
+                              >
+                                <Button onClick={() => placeOrder()}>
+                                  Place Order
+                                </Button>
+                              </td>
+                            </tr>
+                          )}
                         </tbody>
                       </Table>
                     </div>
