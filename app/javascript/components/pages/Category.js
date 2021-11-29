@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Loader from "../../loader/Loader";
 import { CATEGORY_API } from "../../services/constants";
 import { getRequest } from "../../services/server";
 import ProductsCards from "../common/ProductsCards";
@@ -6,6 +7,7 @@ import ProductsCards from "../common/ProductsCards";
 const Category = (props) => {
   const [products, setProducts] = useState(null);
   const [categoryName, setCategoryName] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getRequest(CATEGORY_API + props.match.params.id)
@@ -14,6 +16,7 @@ const Category = (props) => {
         if (res.status === 200) {
           setCategoryName(res.data.category_name);
           setProducts(res.data.products);
+          setIsLoading(false);
         }
       })
       .catch((err) => {
@@ -23,15 +26,19 @@ const Category = (props) => {
 
   return (
     <div className="page-content">
-      <div className="home-content">
-        {products && products.length >= 1 && (
-          <>
-            <h1 className="heading mt-4">{categoryName}</h1>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="home-content">
+          {products && products.length >= 1 && (
+            <>
+              <h1 className="heading mt-4">{categoryName}</h1>
 
-            <ProductsCards products={products} />
-          </>
-        )}
-      </div>
+              <ProductsCards products={products} />
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
