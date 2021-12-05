@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { Col, Row } from "reactstrap";
 import { SIGN_IN_API, SIGN_UP_PAGE } from "../../services/constants";
 import { getRequest } from "../../services/server";
 
@@ -9,13 +11,16 @@ const SignIn = () => {
     getRequest(SIGN_IN_API).then((res) => {
       var temp = res.data;
 
-      console.log("debugging", res.data);
+      temp = temp
+        .toString()
+        .replace(
+          '<a href="/users/password/new">Forgot your password?</a><br />',
+          ""
+        );
 
-      temp = temp.toString().replace("/users/sign_up", SIGN_UP_PAGE);
-      temp = temp.replace(
-        '<a href="/users/password/new">Forgot your password?</a><br />',
-        ""
-      );
+      temp = temp.replace('<a href="/users/sign_up">Sign up</a><br />', "");
+
+      console.log("debugging", temp);
 
       setForm(temp);
     });
@@ -23,8 +28,14 @@ const SignIn = () => {
 
   return (
     <div className="page-content">
-      {console.log("testing", form)}
-      {form && <div dangerouslySetInnerHTML={{ __html: form }} />}
+      <Row className="sign-in-form">
+        <Col xs={4}>
+          {form && <div dangerouslySetInnerHTML={{ __html: form }} />}
+          <div className="sign-in-container">
+            Do not have an account <Link to={SIGN_UP_PAGE}>Sign Up</Link>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };
