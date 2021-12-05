@@ -12,13 +12,8 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { getRequest, postRequest } from "../../services/server";
-import {
-  CURRENT_USER,
-  ORDERS,
-  ROOT,
-  SIGN_IN_PAGE,
-} from "../../services/constants";
+import { postRequest } from "../../services/server";
+import { ORDERS, ROOT, SIGN_IN_PAGE } from "../../services/constants";
 
 const Cart = () => {
   const [productList, setproductList] = useState(null);

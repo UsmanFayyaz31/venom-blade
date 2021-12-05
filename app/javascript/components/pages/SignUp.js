@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 
 import { SIGN_IN_PAGE, SIGN_UP_API } from "../../services/constants";
@@ -7,6 +7,7 @@ import { getRequest } from "../../services/server";
 import Loader from "../../loader/Loader";
 
 const SignUp = () => {
+  const history = useHistory();
   const [form, setForm] = useState(null);
   const [loader, setLoader] = useState(true);
 
@@ -14,12 +15,14 @@ const SignUp = () => {
     getRequest(SIGN_UP_API).then((res) => {
       var temp = res.data;
 
-      temp = temp
-        .toString()
-        .replace('<a href="/users/sign_in">Log in</a><br />', "");
+      if (res.data.toString().includes("<form")) {
+        temp = temp
+          .toString()
+          .replace('<a href="/users/sign_in">Log in</a><br />', "");
 
-      setForm(temp);
-      setLoader(false);
+        setForm(temp);
+        setLoader(false);
+      } else history.push("/");
     });
   }, []);
 
