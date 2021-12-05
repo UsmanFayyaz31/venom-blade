@@ -34,7 +34,7 @@ const SignIn = () => {
         <Loader />
       ) : (
         <Row className="sign-in-form">
-          <Col xs={4}>
+          <Col xs={10} sm={4}>
             {form && <div dangerouslySetInnerHTML={{ __html: form }} />}
             <div className="sign-in-container">
               Do not have an account <Link to={SIGN_UP_PAGE}>Sign Up</Link>

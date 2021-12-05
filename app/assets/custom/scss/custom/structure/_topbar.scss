@@ -601,6 +601,9 @@ body[data-sidebar="dark"] {
       }
     }
   }
+  .center-logo {
+    display: none;
+  }
 }
 
 @media (max-width: 380px) {
@@ -622,10 +625,6 @@ body[data-layout="horizontal"] {
 }
 
 @media (max-width: 374.99px) {
-  .navbar-brand-box {
-    padding: 0 1rem;
-  }
-
   .language-switch {
     display: none !important;
   }

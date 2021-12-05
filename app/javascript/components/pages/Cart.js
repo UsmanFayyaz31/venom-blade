@@ -237,16 +237,16 @@ const Cart = () => {
                                 <tr key={idx}>
                                   <td>{val.product_name}</td>
                                   <td className="text-end">
-                                    $ {val.price * val.quantity}
+                                    {"$ " + val.price * val.quantity}
                                   </td>
                                 </tr>
                               );
                             })}
                           <tr className="bg-light text-dark">
                             <th>Total :</th>
-                            <td className="text-end">
+                            <th className="text-end">
                               <span className="fw-bold">$ {total}</span>
-                            </td>
+                            </th>
                           </tr>
 
                           {!user ? (
