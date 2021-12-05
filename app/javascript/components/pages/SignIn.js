@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row } from "reactstrap";
+
 import { SIGN_IN_API, SIGN_UP_PAGE } from "../../services/constants";
 import { getRequest } from "../../services/server";
+import Loader from "../../loader/Loader";
 
 const SignIn = () => {
   const [form, setForm] = useState(null);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
     getRequest(SIGN_IN_API).then((res) => {
@@ -20,22 +23,25 @@ const SignIn = () => {
 
       temp = temp.replace('<a href="/users/sign_up">Sign up</a><br />', "");
 
-      console.log("debugging", temp);
-
       setForm(temp);
+      setLoader(false);
     });
   }, []);
 
   return (
     <div className="page-content">
-      <Row className="sign-in-form">
-        <Col xs={4}>
-          {form && <div dangerouslySetInnerHTML={{ __html: form }} />}
-          <div className="sign-in-container">
-            Do not have an account <Link to={SIGN_UP_PAGE}>Sign Up</Link>
-          </div>
-        </Col>
-      </Row>
+      {loader ? (
+        <Loader />
+      ) : (
+        <Row className="sign-in-form">
+          <Col xs={4}>
+            {form && <div dangerouslySetInnerHTML={{ __html: form }} />}
+            <div className="sign-in-container">
+              Do not have an account <Link to={SIGN_UP_PAGE}>Sign Up</Link>
+            </div>
+          </Col>
+        </Row>
+      )}
     </div>
   );
 };
