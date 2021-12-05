@@ -69,3 +69,30 @@
     }
   }
 }
+
+.sign-in-form,
+.sign-up-form {
+  display: flex;
+  justify-content: center;
+  height: 70vh;
+  align-items: center;
+  color: white;
+
+  h2 {
+    color: white;
+  }
+
+  .sign-in-container {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  #user_remember_me {
+    width: unset !important;
+    margin-top: 6px;
+  }
+
+  input {
+    width: 100% !important;
+  }
+}
